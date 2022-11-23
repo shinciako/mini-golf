@@ -25,6 +25,10 @@ public class BallMovement : MonoBehaviour
     private Vector3 lineParameters;
     private float lineLengthPrc;
 
+    public float powerIncrement;
+    public Vector3 ballPosition;
+    public Vector3 speedBoostDirection;
+    public float speedBoostPower;
    
     void Start()
     {
@@ -35,6 +39,7 @@ public class BallMovement : MonoBehaviour
         line.gameObject.SetActive(false);
         power = minPower;
         lineLength = 1;
+        ballPosition = rb.position;
     }
     public void HitsCounter()
     {
@@ -55,8 +60,10 @@ public class BallMovement : MonoBehaviour
 
         if (speed < minSpeed)
         {
-            rb.velocity = new Vector3(0, 0, 0);
+            rb.AddForce(-rb.velocity);
+            rb.velocity = Vector3.zero;
             hit = false;
+            ballPosition = rb.position;
         }
     }
 
@@ -70,7 +77,7 @@ public class BallMovement : MonoBehaviour
             loading = true;
             if (power < maxPower)
             {
-                power += 5;
+                power += powerIncrement;
             }
             lineLengthPrc = power / maxPower;
             lineLength = lineLengthPrc * maxLineLength;
@@ -88,6 +95,26 @@ public class BallMovement : MonoBehaviour
             power = minPower;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Respawn")
+        {
+            //rb.position = ballPosition;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.constraints = RigidbodyConstraints.None;
+            rb.position = ballPosition;
+        }
+        if (other.tag == "SpeedBoost")
+        {
+            speedBoostDirection = other.transform.forward;
+            rb.AddForce(speedBoostDirection * speedBoostPower);
+            
+        }
+    }
+
+
+
 }
 
    
