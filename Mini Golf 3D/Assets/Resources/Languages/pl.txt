@@ -1,0 +1,7 @@
+PLAY=Graj
+SETTINGS=Ustawienia
+QUIT=Wyjdź
+VOLUME=Dźwięk
+BACK=Wróć
+RESUME=Wznów
+GOTOMENU=Wróc do menu

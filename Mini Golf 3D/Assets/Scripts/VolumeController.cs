@@ -16,6 +16,7 @@ public class VolumeController : MonoBehaviour
 
     public void changeVolume(){
         AudioListener.volume = volumeSlider.value;
+        save();
     }
 
     //Saving volume level from last activity

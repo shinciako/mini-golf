@@ -998,7 +998,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: English
       m_Image: {fileID: 21300000, guid: f037125550de2df4986f4e7ad979fb8c, type: 3}
-    - m_Text: French
+    - m_Text: Polish
       m_Image: {fileID: 21300000, guid: 3993b088c3a30fa4bbf1bd5e6619ec8a, type: 3}
     - m_Text: Spanish
       m_Image: {fileID: 21300000, guid: 59b5237702cfb5541b911ee81f4c3d53, type: 3}
@@ -1020,5 +1020,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLangs:
   - en
-  - fr
-  - sp
+  - pl
