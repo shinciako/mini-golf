@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour
 {
@@ -109,12 +110,20 @@ public class BallMovement : MonoBehaviour
         {
             speedBoostDirection = other.transform.forward;
             rb.AddForce(speedBoostDirection * speedBoostPower);
-            
+        }
+        if (other.tag == ("Hole")){
+            StartCoroutine(finishedHole());
         }
     }
 
-
-
+    IEnumerator finishedHole(){
+        //Need to add scorecard so we can show it here
+        Debug.Log("You won");
+        yield return new WaitForSeconds(3);
+        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+        if(nextScene>=4) SceneManager.LoadScene(0);
+        else SceneManager.LoadScene(nextScene);
+    }
 }
 
    
