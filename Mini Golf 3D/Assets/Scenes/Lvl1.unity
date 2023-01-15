@@ -4451,7 +4451,7 @@ MonoBehaviour:
   speedX: 5
   speedY: 5
   maxRotationX: 40
-  minRotationX: 0
+  minRotationX: 20
   maxZoom: 20
   minZoom: 5
   ball: {fileID: 1266071120}
