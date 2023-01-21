@@ -5,3 +5,5 @@ VOLUME=Volume
 BACK=Back
 RESUME=Resume
 GOTOMENU=Go to menu
+FINISH=Finish
+TOTALSTROKE=Total strokes

@@ -5,3 +5,5 @@ VOLUME=Dźwięk
 BACK=Wróć
 RESUME=Wznów
 GOTOMENU=Wróc do menu
+FINISH=Koniec
+TOTALSTROKE=Suma uderzeń

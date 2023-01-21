@@ -30,7 +30,8 @@ public class BallMovement : MonoBehaviour
     public Vector3 ballPosition;
     public Vector3 speedBoostDirection;
     public float speedBoostPower;
-   
+    public static int totalScore;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,6 +45,7 @@ public class BallMovement : MonoBehaviour
     }
     public void HitsCounter()
     {
+        totalScore += 1;
         hitCounter.text = "Hits: " + countH.ToString();
     }
     private void FixedUpdate()
@@ -121,7 +123,7 @@ public class BallMovement : MonoBehaviour
         Debug.Log("You won");
         yield return new WaitForSeconds(3);
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        if(nextScene>=4) SceneManager.LoadScene(0);
+        if(nextScene>=5) SceneManager.LoadScene(0);
         else SceneManager.LoadScene(nextScene);
     }
 }
