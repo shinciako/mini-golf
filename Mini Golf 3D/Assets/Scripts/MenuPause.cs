@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuPause : MonoBehaviour
 {
-    static bool isPaused = false;
+    public static bool isPaused = false;
     public GameObject menu;
 
     public void Update(){
@@ -13,17 +13,21 @@ public class MenuPause : MonoBehaviour
             if(isPaused){
                 resume();
             }else{
-                menu.SetActive(true);
-                Time.timeScale = 0f;
-                isPaused = true;
+                stopMenu();
             }
         }
     }
 
     public void resume(){
         menu.SetActive(false);
-                Time.timeScale = 1f;
-                isPaused = false;
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
+
+    public void stopMenu(){
+        menu.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
     }
 
     public void goMenu(){
