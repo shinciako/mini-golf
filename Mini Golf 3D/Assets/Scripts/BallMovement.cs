@@ -118,9 +118,7 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    IEnumerator finishedHole(){
-        //Need to add scorecard so we can show it here
-        Debug.Log("You won");
+    IEnumerator finishedHole(){ 
         yield return new WaitForSeconds(3);
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         if(nextScene>=5) SceneManager.LoadScene(0);

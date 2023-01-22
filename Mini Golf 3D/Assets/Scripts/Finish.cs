@@ -11,6 +11,7 @@ public class Finish : MonoBehaviour
     void Start(){
         int receivedPoints = BallMovement.totalScore;
         totalPoints.text = receivedPoints.ToString();
+        BallMovement.totalScore = 0;
     }
     public void GoToStartMenu(){
         SceneManager.LoadScene(0);
