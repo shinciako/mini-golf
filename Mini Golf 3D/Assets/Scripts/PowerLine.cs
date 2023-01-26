@@ -18,23 +18,25 @@ public class PowerLine : MonoBehaviour
     
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * speedX;
-        float mouseY = Input.GetAxis("Mouse Y") * speedY;
+        if (!Input.GetKey("k"))
+        {
+            float mouseX = Input.GetAxis("Mouse X") * speedX;
+            float mouseY = Input.GetAxis("Mouse Y") * speedY;
 
 
 
 
-        Yrotation = Yrotation + mouseX;
-        Xrotation = Xrotation + mouseY;
-        
-        Xrotation = Mathf.Clamp(Xrotation, minRotationX, maxRotationX);
-        Vector3 nextMove = new Vector3(Xrotation, Yrotation);
-        currentMove = Vector3.SmoothDamp(currentMove, nextMove, ref camVeloviety, smoothTime);
+            Yrotation = Yrotation + mouseX;
+            Xrotation = Xrotation + mouseY;
+
+            Xrotation = Mathf.Clamp(Xrotation, minRotationX, maxRotationX);
+            Vector3 nextMove = new Vector3(Xrotation, Yrotation);
+            currentMove = Vector3.SmoothDamp(currentMove, nextMove, ref camVeloviety, smoothTime);
 
 
-        transform.localEulerAngles = currentMove;
+            transform.localEulerAngles = currentMove;
 
-        transform.position = ball.position - transform.forward * distance;
-
+            transform.position = ball.position - transform.forward * distance;
+        }
     }
 }
